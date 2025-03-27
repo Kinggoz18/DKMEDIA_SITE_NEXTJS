@@ -5,7 +5,14 @@ import { EventPriority } from '@/enums/eventPriority';
 
 export default async function UpcomingEventPage() {
   const eventService = new EventService();
-  const allEvents = await eventService.getAllEvents();
+  let allEvents: IEvent[];
+
+  try {
+    allEvents = await eventService.getAllEvents();
+  } catch (error) {
+    console.error("Error fetching events:", error);
+    return <p>Failed to load events. Please try again later.</p>;
+  }
 
   const upcomingEvents = getUpcomingEvents(allEvents);
   const upcomingHighlights = getHighlight(upcomingEvents)

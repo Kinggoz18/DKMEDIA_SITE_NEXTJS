@@ -1,6 +1,6 @@
 
 import Header from "@/components/Header";
-import AboutUsPage from "@/components/server/AboutUs.server copy";
+import AboutUsPage from "@/components/server/AboutUs.server";
 import RecapsPage from "@/components/server/Recaps.server";
 import UpcomingEventPage from "@/components/server/UpcomingEvent.server";
 
