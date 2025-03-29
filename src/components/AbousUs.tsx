@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function AbousUs(props: AboutUsProps) {
   const { aboutUs } = props;
-  return (<section className='w-full flex flex-row flex-wrap mt-10'>
+  return (<section id='about-us' className='relative w-full flex flex-row flex-wrap mt-10'>
     <h2>{aboutUs?.title}</h2>
     {
       aboutUs?.paragraphs.map((element, index) => (

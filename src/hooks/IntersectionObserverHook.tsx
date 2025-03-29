@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { IntersectionObserverProps } from "../interfaces/IntersectionObserverProps";
+import { IntersectionObserverProps } from "../interfaces/props/IntersectionObserverProps";
 
 /**
  * Intersection observer hook
