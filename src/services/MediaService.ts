@@ -1,6 +1,6 @@
 import axios from "axios";
-import { IResponse } from "../interfaces/IResponse";
-import IMedia from "../interfaces/IMedia";
+import { IResponse } from "@/lib/interfaces/IResponse";
+import IMedia from "@/lib/interfaces/IMedia";
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -25,7 +25,7 @@ export default class MediaService {
   //     return response.data as IMedia;
   //   } catch (error: any) {
   //     console.log({ error })
-  //     throw new Error(error?.response?.data?.data ?? error?.message ?? error)
+  //     throw new Error(error?.response?.data?.data ?? error?.response?.data?.messageerror?.message ?? error)
   //   }
   // }
 
@@ -43,7 +43,7 @@ export default class MediaService {
   //     return response.data as string;
   //   } catch (error: any) {
   //     console.log({ error })
-  //     throw new Error(error?.response?.data?.data ?? error?.message ?? error)
+  //     throw new Error(error?.response?.data?.data ?? error?.response?.data?.messageerror?.message ?? error)
   //   }
   // }
 
@@ -61,7 +61,7 @@ export default class MediaService {
       return response.data as [IMedia];
     } catch (error: any) {
       console.log({ error })
-      throw new Error(error?.response?.data?.data ?? error?.message ?? error)
+      throw new Error(error?.response?.data?.data ?? error?.response?.data?.messageerror?.message ?? error)
     }
   }
 
@@ -79,7 +79,7 @@ export default class MediaService {
       return response.data as IMedia;
     } catch (error: any) {
       console.log({ error })
-      throw new Error(error?.response?.data?.data ?? error?.message ?? error)
+      throw new Error(error?.response?.data?.data ?? error?.response?.data?.messageerror?.message ?? error)
     }
   }
 }

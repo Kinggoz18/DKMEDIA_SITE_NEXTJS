@@ -1,19 +1,46 @@
 "use client"
-import { useState } from 'react';
+import { useAppDispatch, useAppSelector } from '@/lib/hooks/reduxHook';
+import { setIsNewsletterPopupOpen } from '@/lib/redux/NewsletterSlice';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 export default function Header() {
   const [isHeaderOpen, setIsHeaderOpen] = useState(false);
+  const newsletterStore = useAppSelector(state => state.newsletter);
+  const dispatch = useAppDispatch();
+  const path = usePathname();
+  const isContactUs = path.includes("/contact")
+  /**
+  * Toggle header open on mobile screen
+  */
+  function toggleMobileOptions() {
+    if (newsletterStore.isOpen) return;
+
+    if (isHeaderOpen) {
+      document.documentElement.style.overflow = '';
+      setIsHeaderOpen(false)
+    } else {
+      document.documentElement.style.overflow = 'hidden';
+      setIsHeaderOpen(true)
+    }
+
+  }
 
   /**
- * Toggle header open on mobile screen
- */
-  function toggleMobileOptions() {
-    setIsHeaderOpen(!isHeaderOpen)
+   * Toggle news letter popup
+   */
+  function onSubscribeClick() {
+    if (!newsletterStore.isOpen)
+      setIsHeaderOpen(false)
+    dispatch(setIsNewsletterPopupOpen(true))
   }
+
+  console.log({ path })
 
   return (
     <>
-      <header className="top-0 w-full p-4 py-8 flex flex-row h-[100px] items-center justify-items-center justify-between absolute">
+      <header className="top-0 w-full p-4 py-8 flex flex-row h-[100px] items-center justify-items-center justify-between">
         <img src="/dkMediaLogo.png" className="w-[140px] h-[31px]"></img>
         < div
           onClick={toggleMobileOptions}
@@ -26,24 +53,45 @@ export default function Header() {
       </header>
 
       {
-        isHeaderOpen &&
-        <nav className='bg-section h-[100dvh] min-h-screen w-screen absolute z-20 top-[calc(100px)] flex flex-col gap-y-[20px] items-center py-10'>
-          <a
-            href='#events'
-            onClick={() => toggleMobileOptions()}
-            className='font-Palanquin font-semibold text-primary-600 text-[25px]'
-          >Events</a>
-          <a
-            href='#recaps'
-            onClick={() => toggleMobileOptions()}
-            className='font-Palanquin font-semibold text-primary-600 text-[25px]'
-          >Recaps</a>
-          <a
-            href='#about-us'
-            onClick={() => toggleMobileOptions()}
-            className='font-Palanquin font-semibold text-primary-600 text-[25px]'
-          >About DKMediaHG</a>
-        </nav>
+        isHeaderOpen && !isContactUs ?
+          <nav className='bg-section h-[100dvh] min-h-screen w-screen absolute z-20 top-[calc(100px)] flex flex-col gap-y-[20px] items-center py-10'>
+            <a
+              href='#events'
+              onClick={() => toggleMobileOptions()}
+              className='font-Palanquin font-semibold text-primary-600 text-[25px]'
+            >Events</a>
+            <a
+              href="#recaps"
+              onClick={() => toggleMobileOptions()}
+              className='font-Palanquin font-semibold text-primary-600 text-[25px]'
+            >Recaps</a>
+            <a
+              href='#about-us'
+              onClick={() => toggleMobileOptions()}
+              className='font-Palanquin font-semibold text-primary-600 text-[25px]'
+            >About DKMediaHG</a>
+            <a
+              href='#articles'
+              onClick={() => toggleMobileOptions()}
+              className='font-Palanquin font-semibold text-primary-600 text-[25px]'
+            >Articles</a>
+            <Link
+              href='/contact'
+              onClick={() => toggleMobileOptions()}
+              className='font-Palanquin font-semibold text-primary-600 text-[25px]'
+            >Contact us</Link>
+            <div
+              onClick={() => onSubscribeClick()}
+              className='font-Palanquin font-semibold text-primary-600 text-[25px]'
+            >Join our news letter</div>
+          </nav> : isHeaderOpen && isContactUs ?
+            <nav className='bg-section h-[100dvh] min-h-screen w-screen absolute z-20 top-[calc(100px)] flex flex-col gap-y-[20px] items-center py-10'>
+              <Link
+                href='/'
+                onClick={() => toggleMobileOptions()}
+                className='font-Palanquin font-semibold text-primary-600 text-[25px]'
+              >Home</Link>
+            </nav> : <></>
       }
     </>
 

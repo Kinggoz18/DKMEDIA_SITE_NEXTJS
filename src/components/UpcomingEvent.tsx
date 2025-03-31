@@ -1,6 +1,6 @@
 "use client"
 
-import { UpcomingEventProps } from '@/interfaces/props/UpcomingEventProps';
+import { UpcomingEventProps } from '@/lib/interfaces/props/UpcomingEventProps';
 import { useEffect, useRef, useState } from 'react';
 import EventContainer from './EventContainer';
 import NextEventBtn from './NextEventBtn';
@@ -130,7 +130,7 @@ export default function UpcomingEvent(props: UpcomingEventProps) {
   // }, []);
 
   return (
-    <section id='events' className="h-fit w-full flex flex-col relative items-center overflow-hidden bg-section gap-y-[15px]">
+    <section id='events' className="min-h-[790px] w-full grid grid-flow-row relative items-center overflow-hidden">
       {/**************** Highlight section ****************/}
       <div className="h-[220px] max-h-[220px] w-full flex flex-col relative items-center overflow-hidden">
         <div className="h-fit w-full flex flex-col top-[30%] relative z-[1] p-4">
@@ -141,7 +141,7 @@ export default function UpcomingEvent(props: UpcomingEventProps) {
       </div>
 
       {/**************** All events section ****************/}
-      <div className='relative w-full px-[20px] h-fit'>
+      <div className='relative w-full px-[20px] bg-section'>
         <h2 className='h2-small'>Upcoming events</h2>
         {/**************** Mobile display ****************/}
         <div className='relative w-full lg:hidden flex flex-col items-center justify-center' >

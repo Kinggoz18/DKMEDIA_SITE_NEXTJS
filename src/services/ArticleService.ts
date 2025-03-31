@@ -1,6 +1,6 @@
 import axios from "axios";
-import { IResponse } from "../interfaces/IResponse";
-import IArticle from "../interfaces/IArticle";
+import { IResponse } from "@/lib/interfaces/IResponse";
+import IArticle from "@/lib/interfaces/IArticle";
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -20,7 +20,7 @@ export class ArticleService {
   //     return response.data as IArticle;
   //   } catch (error: any) {
   //     console.log(error);
-  //     throw new Error(error?.response?.data?.data ?? error?.message ?? error)
+  //     throw new Error(error?.response?.data?.data ?? error?.response?.data?.messageerror?.message ?? error)
   //   }
   // }
 
@@ -33,7 +33,7 @@ export class ArticleService {
   //     return response.data as string;
   //   } catch (error: any) {
   //     console.log(error);
-  //     throw new Error(error?.response?.data?.data ?? error?.message ?? error)
+  //     throw new Error(error?.response?.data?.data ?? error?.response?.data?.messageerror?.message ?? error)
   //   }
   // }
 
@@ -46,7 +46,7 @@ export class ArticleService {
       return response.data as IArticle;
     } catch (error: any) {
       console.log(error);
-      throw new Error(error?.response?.data?.data ?? error?.message ?? error)
+      throw new Error(error?.response?.data?.data ?? error?.response?.data?.messageerror?.message ?? error)
     }
   }
 
@@ -59,7 +59,7 @@ export class ArticleService {
       return response.data as [IArticle];
     } catch (error: any) {
       console.log(error);
-      throw new Error(error?.response?.data?.data ?? error?.message ?? error)
+      throw new Error(error?.response?.data?.data ?? error?.response?.data?.messageerror?.message ?? error)
     }
   }
 }

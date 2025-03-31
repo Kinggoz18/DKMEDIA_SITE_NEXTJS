@@ -1,4 +1,4 @@
-import { EventPriority } from "@/enums/eventPriority";
+import { EventPriority } from "@/lib/enums/eventPriority";
 import IOrganizer from "../IOrganizer";
 import { RefObject } from "react";
 

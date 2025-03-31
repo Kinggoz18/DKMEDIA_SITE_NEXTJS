@@ -1,6 +1,6 @@
 import axios from "axios";
-import { IResponse } from "../interfaces/IResponse";
-import IContactUs from "../interfaces/IContactUs";
+import { IResponse } from "@/lib/interfaces/IResponse";
+import IContactUs from "@/lib/interfaces/IContactUs";
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -74,7 +74,7 @@ export class ContactUsService {
       return response.data as IContactUs;
     } catch (error: any) {
       console.log(error);
-      throw new Error(error?.response?.data?.data ?? error?.message ?? error)
+      throw new Error(error?.response?.data?.data ?? error?.response?.data?.messageerror?.message ?? error)
     }
   }
 }

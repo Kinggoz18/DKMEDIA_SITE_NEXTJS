@@ -1,6 +1,6 @@
 import axios from "axios";
-import { IResponse } from "../interfaces/IResponse";
-import { ISubscription } from "../interfaces/ISubscription";
+import { IResponse } from "@/lib/interfaces/IResponse";
+import { ISubscription, ISubscriptionUpdate } from "@/lib/interfaces/ISubscription";
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -12,7 +12,7 @@ export default class SubscriptionService {
     this.apiUrl = `${BACKEND_URL}/subscriptions`;
   }
 
-  async addSubscription(data: ISubscription) {
+  async addSubscription(data: ISubscriptionUpdate) {
     try {
       const response = (await (axios.post(`${this.apiUrl}`, data))).data as IResponse;
       if (!response.success) {
@@ -21,7 +21,7 @@ export default class SubscriptionService {
       return response.data as ISubscription
     } catch (error: any) {
       console.log({ error })
-      throw new Error(error.message)
+      throw new Error(error?.response?.data?.data ?? error?.response?.data?.messageerror?.message ?? error)
     }
   }
 
@@ -40,7 +40,7 @@ export default class SubscriptionService {
   //     return response.data as string
   //   } catch (error: any) {
   //     console.log({ error })
-  //     throw new Error(error?.response?.data?.data ?? error?.message ?? error)
+  //     throw new Error(error?.response?.data?.data ?? error?.response?.data?.messageerror?.message ?? error)
   //   }
   // }
 
@@ -58,7 +58,7 @@ export default class SubscriptionService {
       return response.data as ISubscription
     } catch (error: any) {
       console.log({ error })
-      throw new Error(error?.response?.data?.data ?? error?.message ?? error)
+      throw new Error(error?.response?.data?.data ?? error?.response?.data?.messageerror?.message ?? error)
     }
   }
 
@@ -76,7 +76,7 @@ export default class SubscriptionService {
       return response.data as [ISubscription]
     } catch (error: any) {
       console.log({ error })
-      throw new Error(error?.response?.data?.data ?? error?.message ?? error)
+      throw new Error(error?.response?.data?.data ?? error?.response?.data?.messageerror?.message ?? error)
     }
   }
 

@@ -1,4 +1,4 @@
-import IMedia from '@/interfaces/IMedia';
+import IMedia from '@/lib/interfaces/IMedia';
 import Recaps from '../Recaps';
 import MediaService from '@/services/MediaService';
 

@@ -5,7 +5,7 @@ import ThrowAsyncErrorProps from "@/lib/interfaces/props/ThrowAsyncErrorProps";
  * Toggle error component
  * @returns
  */
-export const toggleError = (errorRef: React.RefObject<HTMLDivElement | null>) => {
+export const toggleFeedback = (errorRef: React.RefObject<HTMLDivElement | null>) => {
   const errRef = errorRef?.current;
   if (!errRef) return;
 
@@ -20,7 +20,7 @@ export const toggleError = (errorRef: React.RefObject<HTMLDivElement | null>) =>
   }, 3000);
 };
 
-export default function ThrowAsyncError(props: ThrowAsyncErrorProps) {
+export default function FeedbackPopup(props: ThrowAsyncErrorProps) {
   const { errorRef, responseError, className } = props;
 
   if (!errorRef) return;
@@ -28,7 +28,7 @@ export default function ThrowAsyncError(props: ThrowAsyncErrorProps) {
   return (
     <div
       ref={errorRef}
-      className={`fixed ml-auto mr-auto left-0 right-0 w-fit max-w-[90%] h-fit text-wrap bg-red-600 rounded-lg bottom-[20%] text-center p-4 text-white opacity-0 transition-opacity transform duration-300 ease-in-out !z-[-10] ${className}`}
+      className={`fixed ml-auto mr-auto left-0 right-0 w-fit max-w-[90%] h-fit text-wrap bg-blue-600 rounded-lg bottom-[20%] text-center p-4 text-white opacity-0 transition-opacity transform duration-300 ease-in-out !z-[-10] ${className}`}
     >
       {responseError}
     </div>

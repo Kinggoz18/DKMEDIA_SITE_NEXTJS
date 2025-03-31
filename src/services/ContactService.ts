@@ -1,6 +1,6 @@
 import axios from "axios";
-import { IResponse } from "../interfaces/IResponse";
-import IContact, { IContactUpdate } from "../interfaces/IContact";
+import { IResponse } from "@/lib/interfaces/IResponse";
+import IContact, { IContactUpdate } from "@/lib/interfaces/IContact";
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -23,7 +23,7 @@ export class ContactService {
   //     }
   //     return response.data as IContact;
   //   } catch (error: any) {
-  //     throw new Error(error?.response?.data?.data ?? error?.message ?? error)
+  //     throw new Error(error?.response?.data?.data ?? error?.response?.data?.messageerror?.message ?? error)
   //   }
   // }
 
@@ -39,7 +39,7 @@ export class ContactService {
   //     }
   //     return response.data as string;
   //   } catch (error: any) {
-  //     throw new Error(error?.response?.data?.data ?? error?.message ?? error)
+  //     throw new Error(error?.response?.data?.data ?? error?.response?.data?.messageerror?.message ?? error)
   //   }
   // }
 
@@ -55,7 +55,7 @@ export class ContactService {
       }
       return response.data as IContact;
     } catch (error: any) {
-      throw new Error(error?.response?.data?.data ?? error?.message ?? error)
+      throw new Error(error?.response?.data?.data ?? error?.response?.data?.messageerror?.message ?? error)
     }
   }
 

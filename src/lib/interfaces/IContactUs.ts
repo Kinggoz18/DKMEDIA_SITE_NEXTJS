@@ -5,6 +5,6 @@ export default interface IContactUs {
   subject: string;
   company?: string;
   email: string;
-  phone: string;
+  phone?: string;
   message: string;
 }

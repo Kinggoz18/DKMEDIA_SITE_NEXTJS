@@ -1,6 +1,6 @@
 import AboutUsService from '@/services/AboutUsService';
 import AbousUs from '../AbousUs';
-import IAboutUs from '@/interfaces/IAboutUs';
+import IAboutUs from '@/lib/interfaces/IAboutUs';
 
 export default async function AboutUsPage() {
   const aboutUsService = new AboutUsService();

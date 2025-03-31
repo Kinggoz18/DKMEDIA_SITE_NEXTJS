@@ -1,4 +1,4 @@
-import BtnProps from '@/interfaces/props/BtnProps';
+import BtnProps from '@/lib/interfaces/props/BtnProps';
 import React from 'react'
 
 export default function PrevEventBtn(props: BtnProps) {

@@ -1,4 +1,4 @@
-import EventContainerProps from '@/interfaces/props/EventContainerProps';
+import EventContainerProps from '@/lib/interfaces/props/EventContainerProps';
 import React from 'react'
 
 const formatDate = (date: string): string => {

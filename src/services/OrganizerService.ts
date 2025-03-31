@@ -1,6 +1,6 @@
 import axios from "axios";
-import { IResponse } from "../interfaces/IResponse";
-import IOrganizer, { IOrganizerUpdate } from "../interfaces/IOrganizer";
+import { IResponse } from "@/lib/interfaces/IResponse";
+import IOrganizer, { IOrganizerUpdate } from "@/lib/interfaces/IOrganizer";
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -25,7 +25,7 @@ export default class OrganizerService {
   //     return response.data as IOrganizer;
   //   } catch (error: any) {
   //     console.log({ error })
-  //     throw new Error(error?.response?.data?.data ?? error?.message ?? error)
+  //     throw new Error(error?.response?.data?.data ?? error?.response?.data?.messageerror?.message ?? error)
   //   }
   // }
 
@@ -43,7 +43,7 @@ export default class OrganizerService {
   //     return response.data as string;
   //   } catch (error: any) {
   //     console.log({ error })
-  //     throw new Error(error?.response?.data?.data ?? error?.message ?? error)
+  //     throw new Error(error?.response?.data?.data ?? error?.response?.data?.messageerror?.message ?? error)
   //   }
   // }
 
@@ -61,7 +61,7 @@ export default class OrganizerService {
       return response.data as [IOrganizer];
     } catch (error: any) {
       console.log({ error })
-      throw new Error(error?.response?.data?.data ?? error?.message ?? error)
+      throw new Error(error?.response?.data?.data ?? error?.response?.data?.messageerror?.message ?? error)
     }
   }
 
@@ -79,7 +79,7 @@ export default class OrganizerService {
       return response.data as IOrganizer;
     } catch (error: any) {
       console.log({ error })
-      throw new Error(error?.response?.data?.data ?? error?.message ?? error)
+      throw new Error(error?.response?.data?.data ?? error?.response?.data?.messageerror?.message ?? error)
     }
   }
 
@@ -97,7 +97,7 @@ export default class OrganizerService {
   //     return response.data as IOrganizer;
   //   } catch (error: any) {
   //     console.log({ error })
-  //     throw new Error(error?.response?.data?.data ?? error?.message ?? error)
+  //     throw new Error(error?.response?.data?.data ?? error?.response?.data?.messageerror?.message ?? error)
   //   }
   // }
 }

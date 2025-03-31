@@ -1,6 +1,6 @@
 import axios from "axios";
-import { IResponse } from "../interfaces/IResponse";
-import IAboutUs, { IAboutUsUpdate } from "../interfaces/IAboutUs";
+import { IResponse } from "@/lib/interfaces/IResponse";
+import IAboutUs, { IAboutUsUpdate } from "@/lib/interfaces/IAboutUs";
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL;
 

@@ -1,7 +1,7 @@
 import EventService from '@/services/EventService';
 import UpcomingEvent from '../UpcomingEvent';
-import IEvent from '@/interfaces/IEvent';
-import { EventPriority } from '@/enums/eventPriority';
+import IEvent from '@/lib/interfaces/IEvent';
+import { EventPriority } from '@/lib/enums/eventPriority';
 
 export default async function UpcomingEventPage() {
   const eventService = new EventService();

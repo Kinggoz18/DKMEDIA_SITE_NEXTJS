@@ -1,4 +1,4 @@
-import IContact from '@/interfaces/IContact';
+import IContact from '@/lib/interfaces/IContact';
 import { ContactService } from '@/services/ContactService'
 import React from 'react'
 import Contact from '../Contact';
