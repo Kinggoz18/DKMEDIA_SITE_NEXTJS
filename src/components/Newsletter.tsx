@@ -9,10 +9,9 @@ import CheckboxContainer from './CheckboxContainer';
 import SubscriptionService from '@/services/SubscriptionService';
 import { ISubscriptionUpdate } from '@/lib/interfaces/ISubscription';
 import ThrowAsyncError, { toggleError } from './ThrowAsyncError';
-import { error } from 'console';
 
 export default function Newsletter() {
-  const newsletterStore = useAppSelector(state => state.newsletter);
+  const newsletterStore = useAppSelector(state => state.newsletter.newsletter);
   const subscriptionService = new SubscriptionService();
   const dispatch = useAppDispatch();
 
@@ -111,12 +110,15 @@ export default function Newsletter() {
       document.documentElement.style.overflow = '';
   }, [newsletterStore.isOpen])
 
+  console.log({ newsletterStore })
+
   if (!newsletterStore.isOpen) return null;
 
   return (
-    <section className='absolute w-[85%] min-w-[300px] h-[50vh] min-h-[470px] ml-auto mr-auto left-0 right-0 bg-neutral-950 !z-20 top-[20vh] px-7 flex flex-col py-5 gap-y-8'>
+    <section className='absolute w-[85%] min-w-[300px] max-w-[600px] h-[50vh] min-h-[470px] ml-auto mr-auto left-0 right-0 bg-neutral-950 !z-20 top-[20vh] px-7 flex flex-col py-5 gap-y-8'>
       <div className='flex flex-row w-full items-center'>
-        <h2 className='h2-small'>Newsletter</h2>
+        <h2 className='h2-small lg:hidden'>Newsletter</h2>
+        <h2 className='h2-large lg:block hidden'>Newsletter</h2>
         <Exit onClick={() => dispatch(setIsNewsletterPopupOpen(false))} className='!absolute right-4' />
       </div>
 
@@ -130,7 +132,7 @@ export default function Newsletter() {
               value={firstname}
               placeholder='First name'
               onChange={(e) => setFirstname(e.currentTarget.value)}
-              className='w-[50%] font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-2 focus:outline-none'
+              className='w-[50%] font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-3 focus:outline-none py-1 '
             />
 
             <input
@@ -138,7 +140,7 @@ export default function Newsletter() {
               value={lastname}
               placeholder='Lirst name'
               onChange={(e) => setLastName(e.currentTarget.value)}
-              className='w-[50%] font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-2 focus:outline-none'
+              className='w-[50%] font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-3 focus:outline-none py-1 '
             />
           </div>
         </div>
@@ -151,7 +153,7 @@ export default function Newsletter() {
             value={email}
             placeholder='Email'
             onChange={(e) => setEmail(e.currentTarget.value)}
-            className='w-full font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-2 focus:outline-none'
+            className='w-full font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-3 focus:outline-none py-1 '
           />
         </div>
       </div>
@@ -169,7 +171,7 @@ export default function Newsletter() {
         isChecked={checkbox?.isCheck}
       />
 
-      <div className={`w-full  cursor-pointer text-center font-passion py-1 ${isBtnActive() ? "bg-primary-500" : "bg-primary-500/50"}`} onClick={() => onSubscribeClick()}>
+      <div className={`w-full  cursor-pointer text-center font-passion py-1 md:py-2 md:h2-small ${isBtnActive() ? "bg-primary-500" : "bg-primary-500/50"}`} onClick={() => onSubscribeClick()}>
         Subscribe
       </div>
     </section>

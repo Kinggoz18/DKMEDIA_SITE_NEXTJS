@@ -13,7 +13,7 @@ export default async function HomePage() {
     <>
       {/*********** Header here ***************/}
       <Header />
-      <main className="bg-background w-screen relative grid grid-flow-row gap-y-[20px]">
+      <main className="bg-background w-[100dvw] relative grid grid-flow-row gap-y-[20px]">
         <Newsletter />
         {/* <main className="bg-background h-[calc(100dvh_-_100px)] top-[calc(100px)] w-screen relative overflow-scroll flex flex-col"> */}
         {/*********************** Upcoming events section **************************/}

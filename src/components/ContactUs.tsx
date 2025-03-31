@@ -118,113 +118,117 @@ export default function ContactUs() {
   };
 
   return (
-    <main className="bg-background w-screen relative grid grid-flow-row gap-y-[20px] h-[800px] px-[25px] items-center overflow-hidden">
-      <div className="h2-small w-full text-center text-neutral-100">Contact Us</div>
-      <div className='flex flex-col gap-4'>
-        <div>Have questions or want to work with us? Send us a message.</div>
-        {/**************** Name section ************************/}
-        <div className='flex flex-col w-full gap-y-1'>
-          <div>Name (required)</div>
+    <main className="bg-background w-full h-full relative grid grid-flow-row justify-center">
+      <div className="grid grid-flow-row px-[25px] gap-y-[20px] items-center overflow-hidden h-[800px] max-w-[800px]">
+        <div className="h2-small lg:hidden w-full text-center text-neutral-100">Contact Us</div>
+        <h2 className='h2-large lg:block hidden w-full text-center text-neutral-100'>Contact Us</h2>
 
-          <div className='flex flex-row w-full gap-x-[20px]'>
+        <div className='flex flex-col gap-4'>
+          <div>Have questions or want to work with us? Send us a message.</div>
+          {/**************** Name section ************************/}
+          <div className='flex flex-col w-full gap-y-1'>
+            <div>Name (required)</div>
+
+            <div className='flex flex-row w-full gap-x-[20px]'>
+              <input
+                type="text"
+                value={firstname}
+                placeholder='First name'
+                onChange={(e) => setFirstname(e.currentTarget.value)}
+                className='w-[50%] font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none'
+              />
+
+              <input
+                type="text"
+                value={lastname}
+                placeholder='Lirst name'
+                onChange={(e) => setLastName(e.currentTarget.value)}
+                className='w-[50%] font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none'
+              />
+            </div>
+          </div>
+
+          {/**************** Company section ************************/}
+          <div className='flex flex-col w-full gap-y-1'>
+            <label htmlFor="Company">Company</label>
             <input
+              name='Company'
               type="text"
-              value={firstname}
-              placeholder='First name'
-              onChange={(e) => setFirstname(e.currentTarget.value)}
-              className='w-[50%] font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none'
+              value={company}
+              placeholder='Company'
+              onChange={(e) => setCompany(e.currentTarget.value)}
+              className='w-full font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none'
             />
+          </div>
 
+          {/**************** Email section ************************/}
+          <div className='flex flex-col w-full gap-y-1'>
+            <label htmlFor="Email">Email (required)</label>
             <input
+              name='Email'
+              type="email"
+              value={email}
+              placeholder='Email'
+              onChange={(e) => setEmail(e.currentTarget.value)}
+              className='w-full font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none'
+            />
+          </div>
+
+          {/**************** Phone section ************************/}
+          <div className='flex flex-col w-full gap-y-1'>
+            <label htmlFor="Phone">Phone</label>
+            <input
+              name='Phone'
               type="text"
-              value={lastname}
-              placeholder='Lirst name'
-              onChange={(e) => setLastName(e.currentTarget.value)}
-              className='w-[50%] font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none'
+              value={phone}
+              placeholder='Phone'
+              onChange={(e) => setPhone(e.currentTarget.value)}
+              className='w-full font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none'
+            />
+          </div>
+
+          {/**************** Subject section ************************/}
+          <div className='flex flex-col w-full gap-y-1'>
+            <label htmlFor="Subject">Subject (Required)</label>
+            <input
+              name='Subject'
+              type="text"
+              value={subject}
+              placeholder='Subject'
+              onChange={(e) => setSubject(e.currentTarget.value)}
+              className='w-full font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none'
+            />
+          </div>
+
+          {/**************** Message section ************************/}
+          <div className='flex flex-col w-full gap-y-1'>
+            <label htmlFor="Message">Message (required)</label>
+            <textarea
+              name='Message'
+              value={message}
+              placeholder='Message to DKMedia'
+              onChange={(e) => setMessage(e.currentTarget.value)}
+              rows={5}
+              className='w-full font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none resize-none'
             />
           </div>
         </div>
+        <div className={`w-full max-w-[423px]  cursor-pointer text-center font-passion py-2 justify-self-center ${isBtnActive() ? "bg-primary-500" : "bg-primary-500/50"}`} onClick={() => onSendClick()}>
+          Send message</div>
 
-        {/**************** Company section ************************/}
-        <div className='flex flex-col w-full gap-y-1'>
-          <label htmlFor="Company">Company</label>
-          <input
-            name='Company'
-            type="text"
-            value={company}
-            placeholder='Company'
-            onChange={(e) => setCompany(e.currentTarget.value)}
-            className='w-full font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none'
-          />
-        </div>
+        <ThrowAsyncError
+          responseError={responseError}
+          errorRef={errorRef}
+          className={"!bottom-[20%]"}
+        />
 
-        {/**************** Email section ************************/}
-        <div className='flex flex-col w-full gap-y-1'>
-          <label htmlFor="Email">Email (required)</label>
-          <input
-            name='Email'
-            type="email"
-            value={email}
-            placeholder='Email'
-            onChange={(e) => setEmail(e.currentTarget.value)}
-            className='w-full font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none'
-          />
-        </div>
+        <FeedbackPopup
+          responseError={responseError}
+          errorRef={feedbackRef}
+          className={"!bottom-[20%]"}
+        />
 
-        {/**************** Phone section ************************/}
-        <div className='flex flex-col w-full gap-y-1'>
-          <label htmlFor="Phone">Phone</label>
-          <input
-            name='Phone'
-            type="text"
-            value={phone}
-            placeholder='Phone'
-            onChange={(e) => setPhone(e.currentTarget.value)}
-            className='w-full font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none'
-          />
-        </div>
-
-        {/**************** Subject section ************************/}
-        <div className='flex flex-col w-full gap-y-1'>
-          <label htmlFor="Subject">Subject (Required)</label>
-          <input
-            name='Subject'
-            type="text"
-            value={subject}
-            placeholder='Subject'
-            onChange={(e) => setSubject(e.currentTarget.value)}
-            className='w-full font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none'
-          />
-        </div>
-
-        {/**************** Message section ************************/}
-        <div className='flex flex-col w-full gap-y-1'>
-          <label htmlFor="Message">Message (required)</label>
-          <textarea
-            name='Message'
-            value={message}
-            placeholder='Message to DKMedia'
-            onChange={(e) => setMessage(e.currentTarget.value)}
-            rows={5}
-            className='w-full font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none resize-none'
-          />
-        </div>
       </div>
-      <div className={`w-full max-w-[423px]  cursor-pointer text-center font-passion py-1 ${isBtnActive() ? "bg-primary-500" : "bg-primary-500/50"}`} onClick={() => onSendClick()}>
-        Send message</div>
-
-      <ThrowAsyncError
-        responseError={responseError}
-        errorRef={errorRef}
-        className={"!bottom-[20%]"}
-      />
-
-      <FeedbackPopup
-        responseError={responseError}
-        errorRef={feedbackRef}
-        className={"!bottom-[20%]"}
-      />
-
     </main>
   )
 }

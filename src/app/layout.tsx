@@ -28,7 +28,6 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased grid grid-flow-row h-full w-full`}
-
       >
         <StoreProvider children={children}></StoreProvider>
       </body>

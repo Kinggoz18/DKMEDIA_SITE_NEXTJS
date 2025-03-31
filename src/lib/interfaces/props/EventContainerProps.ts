@@ -10,5 +10,5 @@ export default interface EventContainerProps {
   image: string;
   priority: EventPriority;
   organizer: IOrganizer;
-  ref: RefObject<HTMLDivElement | null>
+  ref?: RefObject<HTMLDivElement | null>
 }
