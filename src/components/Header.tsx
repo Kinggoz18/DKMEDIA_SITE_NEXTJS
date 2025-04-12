@@ -38,8 +38,6 @@ export default function Header() {
     dispatch(setIsNewsletterPopupOpen(true))
   }
 
-  console.log({ path, newsletterStore })
-
   return (
     <>
       <header className="top-0 w-full p-4 py-8 flex flex-row h-[100px] items-center justify-items-center justify-between bg-background">

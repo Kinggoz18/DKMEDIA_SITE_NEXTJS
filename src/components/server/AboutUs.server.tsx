@@ -13,8 +13,6 @@ export default async function AboutUsPage() {
     return <p>Failed to load about us. Please try again later.</p>;
   }
 
-  console.log({ aboutUs });
-
   return (
     <AbousUs
       aboutUs={aboutUs}

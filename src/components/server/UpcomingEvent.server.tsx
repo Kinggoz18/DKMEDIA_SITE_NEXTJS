@@ -57,8 +57,6 @@ export default async function UpcomingEventPage() {
     return upcoming;
   }
 
-  console.log({ allEvents, upcomingEvents, upcomingHighlights });
-
   return (
     <UpcomingEvent
       upcomingEvents={upcomingEvents}

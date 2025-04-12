@@ -193,7 +193,6 @@ export default function UpcomingEvent(props: UpcomingEventProps) {
 
   }, []);
 
-  console.log({ isVisible })
   return (
     <section id='events' className="min-h-[760px] w-full grid grid-flow-row relative items-center overflow-hidden bg-background">
       {/**************** Highlight section ****************/}

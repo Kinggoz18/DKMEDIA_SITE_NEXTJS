@@ -37,7 +37,6 @@ export default function Newsletter() {
   * @param {CheckboxCheckOtions} option Seleced/unselected influence
   */
   const handleSetIsChecked = (option: CheckboxCheckOtions) => {
-    console.log({ option });
     setCheckbox(option);
   };
 
@@ -128,8 +127,6 @@ export default function Newsletter() {
     else
       document.documentElement.style.overflow = '';
   }, [newsletterStore.isOpen])
-
-  console.log({ newsletterStore })
 
   if (!newsletterStore.isOpen) return null;
 

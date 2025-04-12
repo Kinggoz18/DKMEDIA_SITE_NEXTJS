@@ -17,8 +17,6 @@ export default function Contact(props: ContactProps) {
    * Toggle news letter popup
    */
   function onSubscribeClick() {
-    console.log("Clicked")
-
     if (!newsletterStore.isOpen)
       if (!path.includes('contact') && !path.includes('media'))
         document.location = "#events"

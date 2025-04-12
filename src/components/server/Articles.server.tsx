@@ -15,8 +15,6 @@ export default async function ArticlesPage() {
     return <p>Failed to load Articles. Please try again later.</p>;
   }
 
-  console.log({ articles });
-
   return (
     <Articles
       articles={articles}

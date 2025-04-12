@@ -13,8 +13,6 @@ export default async function RecapsPage() {
     return <p>Failed to load media. Please try again later.</p>;
   }
 
-  console.log({ allMedia });
-
   return (
     <Recaps
       allRecaps={allMedia}

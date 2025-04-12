@@ -88,7 +88,6 @@ export default function ContactUs() {
       setMessage("")
       handleShowFeedback("Message sent!")
     } catch (error: any) {
-      console.log(error)
       setEmail("")
       handleThrowError(error?.message)
     }

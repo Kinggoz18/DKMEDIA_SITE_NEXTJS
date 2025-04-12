@@ -15,14 +15,12 @@ const CheckboxContainer = (props: CheckboxContainerProps) => {
     contentClassName = "",
   } = props;
 
-  console.log({ isChecked });
   /**
    * Toggle selected icon for CheckboxContainer1
    */
   const onSelect = () => {
     const status = !isChecked;
 
-    console.log({ status });
     if (status) {
       handleCheck({ option: option, optionId, isCheck: true });
     } else {
