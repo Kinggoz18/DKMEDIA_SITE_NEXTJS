@@ -33,5 +33,5 @@ jobs:
           SOURCE: "./.next/"
           REMOTE_HOST: ${{ secrets.VPS_HOST }}
           REMOTE_USER: ${{ secrets.VPS_USER }}
-          TARGET: "/var/www/nextjs-app"
+          TARGET: "/var/www/dkmedia-website"
           ARGS: "-az --delete"

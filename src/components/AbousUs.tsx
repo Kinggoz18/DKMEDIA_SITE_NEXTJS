@@ -18,8 +18,6 @@ export default function AbousUs(props: AboutUsProps) {
    * Toggle news letter popup
    */
   function onSubscribeClick() {
-    console.log("Clicked")
-
     if (!newsletterStore.isOpen)
       document.location = "#events"
     dispatch(setIsNewsletterPopupOpen(true))
