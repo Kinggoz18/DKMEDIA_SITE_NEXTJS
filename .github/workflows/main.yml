@@ -35,3 +35,15 @@ jobs:
           REMOTE_USER: ${{ secrets.VPS_USER }}
           TARGET: "/var/www/dkmedia-website"
           ARGS: "-az --delete"
+
+      # New step to restart the application
+      - name: Restart Application Service
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /var/www/dkmedia-website
+            npm ci --production
+            pm2 restart dkmedia-website
