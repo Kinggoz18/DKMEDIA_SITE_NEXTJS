@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "22.14" # Specify explicit version
+          node-version: "22.14"
 
       - name: Install Dependencies
         run: npm ci
@@ -30,11 +30,11 @@ jobs:
         uses: easingthemes/ssh-deploy@v2.1.5
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SOURCE: "./.next/"
+          SOURCE: "./"
           REMOTE_HOST: ${{ secrets.VPS_HOST }}
           REMOTE_USER: ${{ secrets.VPS_USER }}
           TARGET: "/var/www/dkmedia-website"
-          ARGS: "-az --delete"
+          ARGS: "-az --delete --exclude='node_modules'"
 
       # New step to restart the application
       - name: Restart Application Service
