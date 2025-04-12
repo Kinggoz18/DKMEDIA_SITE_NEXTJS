@@ -9,6 +9,7 @@ export default interface EventContainerProps {
   date: string;
   image: string;
   priority: EventPriority;
+  ticketLink: string;
   organizer: IOrganizer;
   ref?: RefObject<HTMLDivElement | null>
 }

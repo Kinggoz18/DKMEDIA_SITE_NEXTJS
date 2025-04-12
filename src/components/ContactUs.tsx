@@ -5,6 +5,7 @@ import { ContactUsService } from "@/services/ContactUsService"
 import { useRef, useState } from "react";
 import ThrowAsyncError, { toggleError } from "./ThrowAsyncError";
 import FeedbackPopup, { toggleFeedback } from "./FeedbackPopup";
+import Newsletter from "./Newsletter";
 
 export default function ContactUs() {
 
@@ -47,12 +48,12 @@ export default function ContactUs() {
   function isValidPhoneNumber(phone: string): boolean {
     const phoneRegex = /^(\+?\d{1,4}[-.\s]?)?(\(?\d{1,4}\)?[-.\s]?)?\d{3,4}[-.\s]?\d{4}$/;
     const isValid = phoneRegex.test(email) || /^\d{10}$/.test(phone);
-    if (!isValid) {
+    if (!isValid && phone != "") {
       handleThrowError("Enter a valid phone number");
-      return isValid;
+      return false;
     }
 
-    return isValid;
+    return true;
   }
 
   /**
@@ -119,6 +120,7 @@ export default function ContactUs() {
 
   return (
     <main className="bg-background w-full h-full relative grid grid-flow-row justify-center">
+      <Newsletter />
       <div className="grid grid-flow-row px-[25px] gap-y-[20px] items-center overflow-hidden h-[800px] max-w-[800px]">
         <div className="h2-small lg:hidden w-full text-center text-neutral-100">Contact Us</div>
         <h2 className='h2-large lg:block hidden w-full text-center text-neutral-100'>Contact Us</h2>
@@ -135,7 +137,7 @@ export default function ContactUs() {
                 value={firstname}
                 placeholder='First name'
                 onChange={(e) => setFirstname(e.currentTarget.value)}
-                className='w-[50%] font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none'
+                className='w-[50%] font-Bebas rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none'
               />
 
               <input
@@ -143,7 +145,7 @@ export default function ContactUs() {
                 value={lastname}
                 placeholder='Lirst name'
                 onChange={(e) => setLastName(e.currentTarget.value)}
-                className='w-[50%] font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none'
+                className='w-[50%] font-Bebas rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none'
               />
             </div>
           </div>
@@ -157,7 +159,7 @@ export default function ContactUs() {
               value={company}
               placeholder='Company'
               onChange={(e) => setCompany(e.currentTarget.value)}
-              className='w-full font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none'
+              className='w-full font-Bebas rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none'
             />
           </div>
 
@@ -170,7 +172,7 @@ export default function ContactUs() {
               value={email}
               placeholder='Email'
               onChange={(e) => setEmail(e.currentTarget.value)}
-              className='w-full font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none'
+              className='w-full font-Bebas rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none'
             />
           </div>
 
@@ -183,7 +185,7 @@ export default function ContactUs() {
               value={phone}
               placeholder='Phone'
               onChange={(e) => setPhone(e.currentTarget.value)}
-              className='w-full font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none'
+              className='w-full font-Bebas rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none'
             />
           </div>
 
@@ -196,7 +198,7 @@ export default function ContactUs() {
               value={subject}
               placeholder='Subject'
               onChange={(e) => setSubject(e.currentTarget.value)}
-              className='w-full font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none'
+              className='w-full font-Bebas rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none'
             />
           </div>
 
@@ -209,11 +211,11 @@ export default function ContactUs() {
               placeholder='Message to DKMedia'
               onChange={(e) => setMessage(e.currentTarget.value)}
               rows={5}
-              className='w-full font-passion rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none resize-none'
+              className='w-full font-Bebas rounded-2xl text-neutral-700 bg-neutral-100 px-4 py-1 focus:outline-none resize-none'
             />
           </div>
         </div>
-        <div className={`w-full max-w-[423px]  cursor-pointer text-center font-passion py-2 justify-self-center ${isBtnActive() ? "bg-primary-500" : "bg-primary-500/50"}`} onClick={() => onSendClick()}>
+        <div className={`w-full max-w-[423px]  cursor-pointer text-center font-Bebas py-2 justify-self-center ${isBtnActive() ? "bg-primary-500" : "bg-primary-500/50"}`} onClick={() => onSendClick()}>
           Send message</div>
 
         <ThrowAsyncError

@@ -11,6 +11,8 @@ export default function Header() {
   const dispatch = useAppDispatch();
   const path = usePathname();
   const isContactUs = path.includes("/contact")
+  const isMediaPage = path.includes("/media");
+
   /**
   * Toggle header open on mobile screen
   */
@@ -40,7 +42,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="top-0 w-full p-4 py-8 flex flex-row h-[100px] items-center justify-items-center justify-between">
+      <header className="top-0 w-full p-4 py-8 flex flex-row h-[100px] items-center justify-items-center justify-between bg-background">
         <img src="/dkMediaLogo.png" className="w-[140px] h-[31px]"></img>
         {/****************** Mobile navbar **************/}
         < div
@@ -53,78 +55,108 @@ export default function Header() {
         </div>
 
         {/****************** Desktop navbar **************/}
-        {!isContactUs ?
-          <nav className='gap-x-[20px] items-center py-10 font-Lalezar hidden lg:flex lg:flex-row'>
+        {!isContactUs && !isMediaPage ?
+          <nav className='gap-x-[20px] items-center py-10 font-Bebas hidden lg:flex lg:flex-row'>
             <a
               href='#events'
-              className=' text-primary-600 text-[25px]'
+              className=' text-primary-600 text-[27px]'
             >Events</a>
-            <a
-              href="#recaps"
-              className=' text-primary-600 text-[25px]'
-            >Recaps</a>
+            <Link
+              href='/media'
+              className='text-primary-600 text-[27px]'
+            >Recaps</Link>
             <a
               href='#about-us'
-              className=' text-primary-600 text-[25px]'
+              className=' text-primary-600 text-[27px]'
             >About Us</a>
             <a
               href='#articles'
-              className=' text-primary-600 text-[25px]'
+              className=' text-primary-600 text-[27px]'
             >Articles</a>
             <Link
               href='/contact'
-              className=' text-primary-600 text-[25px]'
+              className=' text-primary-600 text-[27px]'
             >Contact</Link>
-          </nav> :
-          <nav className='gap-y-[20px] items-center py-10 font-Lalezar hidden lg:flex lg:flex-row'>
-            <Link
-              href='/'
-              className=' text-primary-600 text-[25px]'
-            >Home</Link>
-          </nav>
+          </nav> : isContactUs ?
+            <nav className='gap-x-[20px] items-center py-10 font-Bebas hidden lg:flex lg:flex-row'>
+              <Link
+                href='/media'
+                className='text-primary-600 text-[27px]'
+              >Recaps</Link>
+              <Link
+                href='/'
+                className=' text-primary-600 text-[27px]'
+              >Home</Link>
+            </nav> : <nav className='gap-x-[20px] items-center py-10 font-Bebas hidden lg:flex lg:flex-row'>
+              <Link
+                href='/contact'
+                className=' text-primary-600 text-[27px]'
+              >Contact</Link>
+              <Link
+                href='/'
+                className=' text-primary-600 text-[27px]'
+              >Home</Link>
+            </nav>
         }
       </header>
 
       {
-        isHeaderOpen && !isContactUs ?
-          <nav className='bg-section h-[100dvh] min-h-screen w-screen absolute z-20 top-[calc(100px)] flex flex-col gap-y-[20px] items-center py-10'>
+        isHeaderOpen && !isContactUs && !isMediaPage ?
+          <nav className='bg-background h-[100dvh] min-h-screen w-screen absolute z-20 top-[calc(100px)] flex flex-col gap-y-[20px] items-center py-10'>
             <a
               href='#events'
               onClick={() => toggleMobileOptions()}
-              className='font-Palanquin font-semibold text-primary-600 text-[25px]'
+              className='font-Bebas font-semibold text-primary-600 text-[27px]'
             >Events</a>
-            <a
-              href="#recaps"
+            <Link
+              href='/media'
               onClick={() => toggleMobileOptions()}
-              className='font-Palanquin font-semibold text-primary-600 text-[25px]'
-            >Recaps</a>
+              className='font-Bebas font-semibold text-primary-600 text-[27px]'
+            >Recaps</Link>
             <a
               href='#about-us'
               onClick={() => toggleMobileOptions()}
-              className='font-Palanquin font-semibold text-primary-600 text-[25px]'
+              className='font-Bebas font-semibold text-primary-600 text-[27px]'
             >About DKMediaHG</a>
             <a
               href='#articles'
               onClick={() => toggleMobileOptions()}
-              className='font-Palanquin font-semibold text-primary-600 text-[25px]'
+              className='font-Bebas font-semibold text-primary-600 text-[27px]'
             >Articles</a>
             <Link
               href='/contact'
               onClick={() => toggleMobileOptions()}
-              className='font-Palanquin font-semibold text-primary-600 text-[25px]'
+              className='font-Bebas font-semibold text-primary-600 text-[27px]'
             >Contact us</Link>
             <div
               onClick={() => onSubscribeClick()}
-              className='font-Palanquin font-semibold text-primary-600 text-[25px]'
+              className='font-Bebas font-semibold text-primary-600 text-[27px]'
             >Join our newsletter</div>
           </nav> : isHeaderOpen && isContactUs ?
-            <nav className='bg-section h-[100dvh] min-h-screen w-screen absolute z-20 top-[calc(100px)] flex flex-col gap-y-[20px] items-center py-10'>
+            <nav className='bg-background h-[100dvh] min-h-screen w-screen absolute z-20 top-[calc(100px)] flex flex-col gap-y-[20px] items-center py-10'>
+              <Link
+                href='/media'
+                onClick={() => toggleMobileOptions()}
+                className='font-Bebas font-semibold text-primary-600 text-[27px]'
+              >Recaps</Link>
               <Link
                 href='/'
                 onClick={() => toggleMobileOptions()}
-                className='font-Palanquin font-semibold text-primary-600 text-[25px]'
+                className='font-Bebas font-semibold text-primary-600 text-[27px]'
               >Home</Link>
-            </nav> : <></>
+            </nav> : isHeaderOpen && isMediaPage ?
+              <nav className='bg-background h-[100dvh] min-h-screen w-screen absolute z-20 top-[calc(100px)] flex flex-col gap-y-[20px] items-center py-10'>
+                <Link
+                  href='/contact'
+                  onClick={() => toggleMobileOptions()}
+                  className='font-Bebas font-semibold text-primary-600 text-[27px]'
+                >Contact</Link>
+                <Link
+                  href='/'
+                  onClick={() => toggleMobileOptions()}
+                  className='font-Bebas font-semibold text-primary-600 text-[27px]'
+                >Home</Link>
+              </nav> : <></>
       }
     </>
 

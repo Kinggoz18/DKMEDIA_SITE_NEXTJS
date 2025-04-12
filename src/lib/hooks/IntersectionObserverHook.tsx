@@ -8,16 +8,16 @@ import { IntersectionObserverProps } from "@/lib/interfaces/props/IntersectionOb
  */
 const useIntersectionObserverHook = (props: IntersectionObserverProps) => {
   const { rootElement, threshold } = props;
-  const ref = useRef<HTMLDivElement>(null); //The element to observe
+  const elementRef = useRef<any>(null); //The element to observe
   const [isVisible, setIsVisible] = useState(false); //Boolean flags
 
   useEffect(() => {
-    const element = ref.current;
+    const element = elementRef.current;
 
     if (!element) return;
 
     const options = {
-      root: rootElement.current,
+      root: rootElement ? rootElement.current : null,
       threshold: threshold,
       rootMargin: "0px",
     };
@@ -34,7 +34,7 @@ const useIntersectionObserverHook = (props: IntersectionObserverProps) => {
     };
   }, [rootElement, threshold]);
 
-  return [ref, isVisible];
+  return {elementRef, isVisible};
 };
 
 export default useIntersectionObserverHook;

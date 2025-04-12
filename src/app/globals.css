@@ -1,18 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Palanquin:wght@100;200;300;400;500;600;700&family=Passion+One:wght@400;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Palanquin:wght@100;200;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import "tailwindcss";
+@import "tailwindcss-animated";
 
 @theme {
   --color-background: oklch(23.5% 0 0);
   --color-primary-500: oklch(49.96% 0.2019 28.89);
   --color-primary-600: oklch(49.6% 0.1999 28.83 / 90.45%);
   --color-section: oklch(20.77% 0 0);
-
+  
   --animate-spin-slow: spin 2s linear infinite;
-  --font-passion: "Passion One", sans-serif;
-  --font-nunito: "Nunito", sans-serif;
+  --font-Bebas: "Bebas Neue", sans-serif;
+  --font-Poppins: "Poppins", sans-serif;
   --font-Palanquin: "Palanquin", sans-serif;
-  --font-Lalezar: "Lalezar", system-ui;
 }
 
 /************************************************* {Animation keyframes} *************************************************/
@@ -43,9 +42,9 @@
   }
 }
 
-html{
+html {
   height: 100%;
-  min-height:100%;
+  min-height: 100%;
   width: 100%;
   min-width: 100%;
 }
@@ -63,11 +62,11 @@ body {
 
   /************************************************* Header layer *************************************************/
   .h1-small {
-    @apply font-passion text-[40px] font-normal text-primary-600;
+    @apply font-Bebas text-[40px] font-normal text-primary-600;
   }
 
   .h2-small {
-    @apply font-passion text-[35px] font-normal text-primary-600;
+    @apply font-Bebas text-[35px] font-normal text-primary-600;
   }
 
   .h3-small {
@@ -78,8 +77,29 @@ body {
     @apply font-Palanquin text-[20px] font-normal text-primary-600;
   }
 
-  .h2-large{
-    @apply font-passion text-[50px] font-normal text-primary-600;
+  .h2-large {
+    @apply font-Bebas text-[50px] font-normal text-primary-600;
   }
 
+
+
+  /* .h1-small {
+    @apply font-Poppins text-[40px] font-bold text-primary-600;
+  }
+
+  .h2-small {
+    @apply font-Poppins font-bold text-[35px] text-primary-600;
+  }
+
+  .h3-small {
+    @apply font-Palanquin text-[24px] font-bold text-primary-600;
+  }
+
+  .h4-small {
+    @apply font-Palanquin text-[20px] font-bold text-primary-600;
+  }
+
+  .h2-large {
+    @apply font-Poppins text-[50px] font-bold text-primary-600;
+  } */
 }

@@ -13,7 +13,9 @@ export default async function HomePage() {
     <>
       {/*********** Header here ***************/}
       <Header />
-      <main className="bg-background w-[100dvw] relative grid grid-flow-row gap-y-[20px]">
+      {/* <main className="w-[100dvw] relative grid grid-flow-row gap-y-[20px] bg-neutral-200"> */}
+      {/* <main className="bg-background w-[100dvw] relative grid grid-flow-row"> */}
+      <main className="bg-section w-[100dvw] relative grid grid-flow-row">
         <Newsletter />
         {/* <main className="bg-background h-[calc(100dvh_-_100px)] top-[calc(100px)] w-screen relative overflow-scroll flex flex-col"> */}
         {/*********************** Upcoming events section **************************/}
