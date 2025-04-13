@@ -13,9 +13,9 @@ export default function Recaps(props: RecapsProps) {
   const { elementRef, isVisible } = useIntersectionObserverHook({ threshold: 0.1 })
 
   return (
-    <section id='recaps' ref={elementRef} className={`relative h-fit max-h-[calc(100dvh_-_150px)] min-h-[450px] max w-full flex flex-col items-start overflow-hidden bg-background gap-y-[15px]  ${isVisible ? "animate-fade-up animate-duration-[800ms] animate-ease-in delay-100" : "!opacity-0"}`}>
+    <section id='recaps' ref={elementRef} className={`relative h-fit max-h-[calc(100dvh_-_150px)] min-h-[450px] max w-full flex flex-col items-start overflow-hidden bg-background-prime gap-y-[15px]  ${isVisible ? "animate-fade-up animate-duration-[800ms] animate-ease-in delay-100" : "!opacity-0"}`}>
       <div className='flex flex-row w-full justify-between items-center'>
-        <h2 className='h2-small lg:hidden w-full bg-background z-1 px-[10px] pt-[20px]'>Our Recaps</h2>
+        <h2 className='h2-small lg:hidden w-full bg-background-prime z-1 px-[10px] pt-[20px]'>Our Recaps</h2>
         <h2 className='h2-large lg:block hidden w-full bg-section px-[40px] py-[10px] z-1'>Our Recaps</h2>
       </div>
 
@@ -36,7 +36,7 @@ export default function Recaps(props: RecapsProps) {
                 muted={false}
                 className="max-h-[160px] h-[160px] w-[160px] max-w-[450px] object-cover"
               >
-                <source src={element?.mediaLink} type="video/mp4" />
+                <source src={`${element?.mediaLink}#t=0.1`} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             }
@@ -61,7 +61,7 @@ export default function Recaps(props: RecapsProps) {
                 muted={false}
                 className="h-[400px] w-[400px] max-h-[400px] max-w-[400px] object-cover"
               >
-                <source src={element?.mediaLink} type="video/mp4" />
+                <source src={`${element?.mediaLink}#t=0.1`} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             }

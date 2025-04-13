@@ -194,7 +194,7 @@ export default function UpcomingEvent(props: UpcomingEventProps) {
   }, []);
 
   return (
-    <section id='events' className="min-h-[760px] w-full grid grid-flow-row relative items-center overflow-hidden bg-background">
+    <section id='events' className="min-h-[760px] w-full grid grid-flow-row relative items-center overflow-hidden bg-background-prime">
       {/**************** Highlight section ****************/}
       <div className="h-[40vh] max-h-[40vh] w-full flex flex-col relative items-center overflow-hidden md:h-[60vh] md:max-h-[60vh] lg:h-[90vh] lg:max-h-[90vh]">
         <div className="h-fit w-full flex flex-col top-[30%] relative z-[1] p-4 lg:hidden">
@@ -223,7 +223,7 @@ export default function UpcomingEvent(props: UpcomingEventProps) {
 
       {/**************** All events section ****************/}
       <div ref={elementRef} className={`relative w-full lg:pb-[20px] flex flex-col items-center  bg-gradient-to-b from-[#0D0D0D] to-[#3A0144] ${isVisible ? "animate-fade-up animate-duration-[800ms] animate-ease-in delay-100" : "!opacity-0"}`}>
-        <h2 className='h2-small  lg:hidden w-full bg-background z-1 px-[10px] py-[10px]'>Upcoming Events</h2>
+        <h2 className='h2-small  lg:hidden w-full bg-background-prime z-1 px-[10px] py-[10px]'>Upcoming Events</h2>
         <h2 className='h2-large lg:block hidden w-full bg-section px-[40px] py-[10px] z-1'>Upcoming Events</h2>
 
 

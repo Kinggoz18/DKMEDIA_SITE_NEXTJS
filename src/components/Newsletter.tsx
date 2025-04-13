@@ -132,74 +132,75 @@ export default function Newsletter() {
 
   return (
     <>
-      <div className="absolute h-screen w-screen bg-neutral-900/50 z-10"></div>
-      <section className='absolute w-[85%] min-w-[300px] max-w-[600px] h-[50vh] min-h-[470px] ml-auto mr-auto left-0 right-0 bg-neutral-950 !z-20 top-[20vh] px-7 flex flex-col py-5 gap-y-8'>
-        <div className='flex flex-row w-full items-center'>
-          <h2 className='h2-small lg:hidden'>Newsletter</h2>
-          <h2 className='h2-large lg:block hidden'>Newsletter</h2>
-          <Exit onClick={() => dispatch(setIsNewsletterPopupOpen(false))} className='!absolute right-4' />
-        </div>
+      <div className="fixed h-[100dvh] w-screen bg-neutral-900/50 z-10 top-0">
+        <section className='absolute w-[85%] min-w-[300px] max-w-[600px] h-[50vh] min-h-[470px] ml-auto mr-auto left-0 right-0 bg-neutral-950 !z-20 top-[20vh] px-7 flex flex-col py-5 gap-y-8 text-neutral-200'>
+          <div className='flex flex-row w-full items-center'>
+            <h2 className='h2-small lg:hidden'>Newsletter</h2>
+            <h2 className='h2-large lg:block hidden'>Newsletter</h2>
+            <Exit onClick={() => dispatch(setIsNewsletterPopupOpen(false))} className='!absolute right-4' />
+          </div>
 
-        <div className='flex flex-col gap-4'>
-          <div className='flex flex-col w-full gap-y-1'>
-            <div>Name (required)</div>
+          <div className='flex flex-col gap-4'>
+            <div className='flex flex-col w-full gap-y-1'>
+              <div>Name (required)</div>
 
-            <div className='flex flex-row w-full gap-x-[20px]'>
+              <div className='flex flex-row w-full gap-x-[20px]'>
+                <input
+                  type="text"
+                  value={firstname}
+                  placeholder='First name'
+                  onChange={(e) => setFirstname(e.currentTarget.value)}
+                  className='w-[50%] font-Bebas rounded-2xl text-neutral-700 bg-neutral-100 px-3 focus:outline-none py-1 '
+                />
+
+                <input
+                  type="text"
+                  value={lastname}
+                  placeholder='Lirst name'
+                  onChange={(e) => setLastName(e.currentTarget.value)}
+                  className='w-[50%] font-Bebas rounded-2xl text-neutral-700 bg-neutral-100 px-3 focus:outline-none py-1 '
+                />
+              </div>
+            </div>
+
+            <div className='flex flex-col w-full gap-y-1'>
+              <label htmlFor="Email">Email (required)</label>
               <input
-                type="text"
-                value={firstname}
-                placeholder='First name'
-                onChange={(e) => setFirstname(e.currentTarget.value)}
-                className='w-[50%] font-Bebas rounded-2xl text-neutral-700 bg-neutral-100 px-3 focus:outline-none py-1 '
-              />
-
-              <input
-                type="text"
-                value={lastname}
-                placeholder='Lirst name'
-                onChange={(e) => setLastName(e.currentTarget.value)}
-                className='w-[50%] font-Bebas rounded-2xl text-neutral-700 bg-neutral-100 px-3 focus:outline-none py-1 '
+                name='Email'
+                type="email"
+                value={email}
+                placeholder='Email'
+                onChange={(e) => setEmail(e.currentTarget.value)}
+                className='w-full font-Bebas rounded-2xl text-neutral-700 bg-neutral-100 px-3 focus:outline-none py-1 '
               />
             </div>
           </div>
 
-          <div className='flex flex-col w-full gap-y-1'>
-            <label htmlFor="Email">Email (required)</label>
-            <input
-              name='Email'
-              type="email"
-              value={email}
-              placeholder='Email'
-              onChange={(e) => setEmail(e.currentTarget.value)}
-              className='w-full font-Bebas rounded-2xl text-neutral-700 bg-neutral-100 px-3 focus:outline-none py-1 '
-            />
+          <ThrowAsyncError
+            responseError={responseError}
+            errorRef={errorRef}
+            className={"!bottom-[10%]"}
+          />
+
+          <FeedbackPopup
+            responseError={responseError}
+            errorRef={feedbackRef}
+            className={"!bottom-[20%]"}
+          />
+
+
+          <CheckboxContainer
+            option={checkbox?.option}
+            handleCheck={handleSetIsChecked}
+            optionId={checkbox?.optionId}
+            isChecked={checkbox?.isCheck}
+          />
+
+          <div className={`w-full  cursor-pointer text-center font-Bebas py-1 md:py-2 md:h2-small ${isBtnActive() ? "bg-primary-500" : "bg-primary-500/50"}`} onClick={() => onSubscribeClick()}>
+            Subscribe
           </div>
-        </div>
-
-        <ThrowAsyncError
-          responseError={responseError}
-          errorRef={errorRef}
-          className={"!bottom-[10%]"}
-        />
-
-        <FeedbackPopup
-          responseError={responseError}
-          errorRef={feedbackRef}
-          className={"!bottom-[20%]"}
-        />
-
-
-        <CheckboxContainer
-          option={checkbox?.option}
-          handleCheck={handleSetIsChecked}
-          optionId={checkbox?.optionId}
-          isChecked={checkbox?.isCheck}
-        />
-
-        <div className={`w-full  cursor-pointer text-center font-Bebas py-1 md:py-2 md:h2-small ${isBtnActive() ? "bg-primary-500" : "bg-primary-500/50"}`} onClick={() => onSubscribeClick()}>
-          Subscribe
-        </div>
-      </section>
+        </section>
+      </div>
     </>
 
   )

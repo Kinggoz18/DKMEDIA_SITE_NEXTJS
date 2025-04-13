@@ -16,7 +16,7 @@ export default function Media(props: MediaPageProps) {
   }
 
   return (
-    <section className="bg-background w-full h-full relative grid grid-flow-row justify-center overflow-hidden pb-[190px]">
+    <section className="bg-background-prime w-full h-full relative grid grid-flow-row justify-center overflow-hidden pb-[190px]">
       <div className="w-full absolute h-fit">
         <h2 className='h2-small lg:hidden py-[20px] px-[40px] w-full'>Our Recaps</h2>
         <h2 className='h2-large lg:block hidden py-[20px] px-[40px] w-full'>Our Recaps</h2>
@@ -44,7 +44,7 @@ export default function Media(props: MediaPageProps) {
                 muted={false}
                 className="max-h-[140px] h-[140px] w-[140px] max-w-[140px] object-cover"
               >
-                <source src={element?.mediaLink} type="video/mp4" />
+                <source src={`${element?.mediaLink}#t=0.1`} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             }
@@ -60,7 +60,7 @@ export default function Media(props: MediaPageProps) {
                 muted={false}
                 className="max-h-[140px] h-[140px] w-[140px] max-w-[140px] object-cover"
               >
-                <source src={element?.mediaLink} type="video/mp4" />
+                <source src={`${element?.mediaLink}#t=0.1`} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             }
@@ -84,7 +84,7 @@ export default function Media(props: MediaPageProps) {
                   muted={false}
                   className="h-[400px] w-[400px] max-h-[400px] max-w-[400px] object-cover"
                 >
-                  <source src={element?.mediaLink} type="video/mp4" />
+                  <source src={`${element?.mediaLink}#t=0.1`} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               }
@@ -101,7 +101,7 @@ export default function Media(props: MediaPageProps) {
                   muted={false}
                   className="h-[400px] w-[400px] max-h-[400px] max-w-[400px] object-cover"
                 >
-                  <source src={element?.mediaLink} type="video/mp4" />
+                  <source src={`${element?.mediaLink}#t=0.1`} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               }

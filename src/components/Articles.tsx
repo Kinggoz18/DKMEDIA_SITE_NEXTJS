@@ -10,7 +10,7 @@ export default function Articles(props: ArticlesProps) {
   const { elementRef, isVisible } = useIntersectionObserverHook({ threshold: 0.1 })
 
   return (
-    <section id='articles' ref={elementRef} className={`relative w-full flex-wrap bg-background pb-[20px] ${isVisible ? "animate-fade-up animate-duration-[800ms] animate-ease-in delay-100" : "!opacity-0"}`}>
+    <section id='articles' ref={elementRef} className={`relative w-full flex-wrap bg-background-prime pb-[20px] ${isVisible ? "animate-fade-up animate-duration-[800ms] animate-ease-in delay-100" : "!opacity-0"}`}>
       <h2 className='h2-small lg:hidden py-[20px] px-[20px] w-full'>Articles</h2>
       <h2 className='h2-large lg:block hidden py-[20px] px-[40px] w-full'>Articles</h2>
 

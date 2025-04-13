@@ -118,7 +118,7 @@ export default function ContactUs() {
   };
 
   return (
-    <main className="bg-background w-full h-full relative grid grid-flow-row justify-center">
+    <main className="bg-background-prime w-full h-full relative grid grid-flow-row justify-center text-neutral-200">
       <Newsletter />
       <div className="grid grid-flow-row px-[25px] gap-y-[20px] items-center overflow-hidden h-[800px] max-w-[800px]">
         <div className="h2-small lg:hidden w-full text-center text-neutral-100">Contact Us</div>

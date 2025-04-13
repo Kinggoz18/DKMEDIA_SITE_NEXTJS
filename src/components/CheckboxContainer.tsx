@@ -67,7 +67,7 @@ const CheckboxContainer = (props: CheckboxContainerProps) => {
           </svg>
         )}
 
-        <div className="flex-1 relative leading-[24px]">
+        <div className="flex-1 relative leading-[20px] text-[14px] md:text-[16px] lg:text-[18px]">
           {option}
         </div>
       </div>

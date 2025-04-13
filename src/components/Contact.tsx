@@ -26,10 +26,10 @@ export default function Contact(props: ContactProps) {
 
   return (
     <>
-      <footer className="bottom-0 releative row-start-3 flex flex-col items-start gap-[24px] flex-wrap justify-start px-[20px] py-10 lg:px-[40px] lg:py-[20px] lg:hidden bg-background">
+      <footer className="bottom-0 releative row-start-3 flex flex-col items-start gap-[24px] flex-wrap justify-start px-[20px] py-10 lg:px-[40px] lg:py-[20px] lg:hidden bg-background-prime">
         <Image src='/dkMediaLogo.png' width={233} height={59} alt='DKMEDIA logo'></Image>
 
-        <div className='w-full'>
+        <div className='w-full text-neutral-200'>
           <div className="text-neutral-200 h2-small font-bold relative">JOIN THE DKMEDIA<sub className="text-sm">{" "}HG</sub><br></br>{" "}FAMILY</div>
           <div className='font-Palanquin'>
             Sign up for updates on the latest events, information and more
@@ -40,7 +40,7 @@ export default function Contact(props: ContactProps) {
           Subscribe
         </div>
 
-        <div className='flex flex-row gap-x-4'>
+        <div className='flex flex-row gap-x-4 text-neutral-200'>
           <a href={contact.instagramLink} target='_blank' className='bg-neutral-200 rounded-full h-[60px] w-[61.8px] flex items-center justify-center'>
             <img src="/instagram-icon.svg" alt="Instagram icon" className='h-[30px] w-[30px]' />
           </a>
@@ -50,7 +50,7 @@ export default function Contact(props: ContactProps) {
           </a>
         </div>
 
-        <a className='underline font-semibold cursor-pointer' href={`mailto:${contact.email}`}>{contact.email}</a>
+        <a className='underline font-semibold cursor-pointer text-neutral-200' href={`mailto:${contact.email}`}>{contact.email}</a>
       </footer>
 
       <footer className="w-full hidden bottom-0 releative row-start-3 items-start gap-[24px] flex-wrap justify-start px-[20px] py-10 lg:px-[40px] lg:py-[20px] lg:flex lg:flex-col">
@@ -66,12 +66,9 @@ export default function Contact(props: ContactProps) {
               Subscribe
             </div>
           </div>
-
-
-
         </div>
 
-        <div className='w-full flex flex-row'>
+        <div className='w-full flex flex-row text-neutral-200'>
           <a className='underline font-semibold cursor-pointer ml-3' href={`mailto:${contact.email}`}>{contact.email}</a>
 
           <div className='flex flex-row gap-x-4 grow justify-end'>
