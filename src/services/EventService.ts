@@ -2,8 +2,7 @@ import axios from "axios";
 import IEvent, { IEventUpdate } from "@/lib/interfaces/IEvent";
 import { IResponse } from "@/lib/interfaces/IResponse";
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL;
-
+const BACKEND_URL = "https://api.dkmedia305.com/api/v1"
 /**
  * Event service class
  */

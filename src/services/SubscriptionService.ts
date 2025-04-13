@@ -2,8 +2,7 @@ import axios from "axios";
 import { IResponse } from "@/lib/interfaces/IResponse";
 import { ISubscription, ISubscriptionUpdate } from "@/lib/interfaces/ISubscription";
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL;
-
+const BACKEND_URL = "https://api.dkmedia305.com/api/v1"
 export default class SubscriptionService {
 
   apiUrl: string;
